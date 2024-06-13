@@ -18,7 +18,7 @@ class LoginController extends Controller
         ]);
 
         if(!auth()->attempt($request->only('email','password'),$request->remember)){
-            return back()->with('mensaje', 'Email o Contraseña Incorrectos');
+            return back()->with('msg_error', 'Email o Contraseña Incorrectos');
         }
 
         return redirect(route('posts.index', ['user' => auth()->user()->username]));
