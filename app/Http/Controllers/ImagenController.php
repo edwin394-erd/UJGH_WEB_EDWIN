@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Intervention\Image\ImageManager;
+use App\Models\User;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManager;
 use Illuminate\Http\Request; // Asegúrate de importar la clase Request
 
 class ImagenController extends Controller
@@ -26,5 +27,7 @@ class ImagenController extends Controller
         return response()->json([
             'imagen' => $nombreImagen,
         ]);
+
+        
     }
 }

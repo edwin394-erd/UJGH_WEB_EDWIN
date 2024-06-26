@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -26,8 +27,8 @@ class PostController extends Controller
 
    public function store(Request $request){
      $this->validate($request,[
-        'titulo' => 'required|max:255',
-        'descripcion' => 'required',
+        'titulo' => 'required|max:50',
+        'descripcion' => 'required|max:150',
         'imagen'=>'required'
 
      ]);
@@ -54,6 +55,11 @@ class PostController extends Controller
         $this->authorize('delete', $post);
         $post->delete();
 
+        $imagen_path =public_path(('uploads/' . $post->imagen));
+
+        if(File::exists($imagen_path)){
+          File::delete($imagen_path);
+        }
         return redirect()->route('posts.index', auth()->user()->username);
    }
 }
