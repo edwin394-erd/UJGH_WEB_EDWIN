@@ -21,6 +21,6 @@ class LoginController extends Controller
             return back()->with('msg_error', 'Email o Contraseña Incorrectos');
         }
 
-        return redirect(route('posts.index', ['user' => auth()->user()->username]));
+        return redirect(route('home'));
     }
 }
