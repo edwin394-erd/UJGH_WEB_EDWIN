@@ -4,6 +4,9 @@
      {{$post->titulo}}
 @endsection
 
+@section('titulo')
+    {{$post->titulo}}
+@endsection
 @section('contenido')
 
     <div class="container lg:flex bg-white shadow w-4/5 mx-auto rounded-lg">

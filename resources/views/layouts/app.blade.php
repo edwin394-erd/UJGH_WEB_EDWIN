@@ -9,9 +9,9 @@
 <body class="bg-gradient-to-r from-gray-200 to-gray-300">
     <header class="p-5 border-b bg-black shadow-2xl border-none">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-white">
+            <a class="text-2xl font-bold text-white" href="{{route('home')}}">
                 UJGH WEB
-            </h1>
+            </a>
 
             @auth
                 <nav class="flex gap-2 items-center text-white">

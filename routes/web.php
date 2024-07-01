@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LikeController;
 use Illuminate\Auth\Events\Login;
@@ -13,13 +14,9 @@ use App\Http\Controllers\perfilController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Follower;
 
-Route::get('/prueba/{post}',function(){
-    return view('prueba');
-});
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+
+Route::get('/', HomeController::class)->name('home');
 
 Route::get('/Registro',[RegisterController::class, 'index'])->name('register');
 Route::post('/Registro',[RegisterController::class, 'store']);
@@ -50,3 +47,4 @@ Route::delete('/posts/{post}/likes',[LikeController::class, 'destroy'])->name('p
 //siguiendo
 Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
 Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
+
